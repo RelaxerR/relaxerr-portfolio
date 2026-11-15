@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Портфолио Вячеслава Киселёва (RelaxerR), .NET-разработчика и основателя RelaxerR Games. The Book Game, сайты, веб-сервисы и Telegram-боты.">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>Вячеслав Киселёв — RelaxerR</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1d1d1f;
+      --muted: #535358;
+      --paper: #f5f5f7;
+      --white: #fff;
+      --line: #dfdfe3;
+      --orange: #a7380d;
+      --tangerine: #ff9a50;
+      --gold: #ffd567;
+      --gutter: clamp(1.25rem, 5vw, 3rem);
+      font: 100%/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      scroll-padding-top: 5.5rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body, h1, h2, h3, p { margin: 0; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--orange); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: .2em; }
+    :focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+    .dark :focus-visible { outline-color: var(--gold); }
+    .wrap { width: min(100%, 75rem); margin-inline: auto; padding-inline: var(--gutter); }
+    .skip { position: fixed; z-index: 3; inset: .5rem auto auto .5rem; padding: .75rem; background: var(--white); transform: translateY(-160%); }
+    .skip:focus { transform: none; }
+    .topbar { position: sticky; top: 0; z-index: 2; background: rgba(251, 251, 253, .92); backdrop-filter: saturate(160%) blur(16px); border-bottom: 1px solid var(--line); }
+    .masthead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 2rem; min-height: 3.25rem; padding-block: .35rem; }
+    .wordmark { color: var(--ink); font-weight: 700; letter-spacing: -.035em; }
+    .links, nav, .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; }
+    nav a { display: inline-flex; align-items: center; min-height: 2rem; font-size: .85rem; color: var(--muted); }
+    .intro { background: radial-gradient(ellipse at 85% 65%, #ffead7, transparent 52%), var(--white); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(1.75rem, 5vw, 5rem); align-items: center; padding-block: clamp(3.5rem, 9vw, 7.5rem); }
+    h1, h2, h3 { line-height: 1.04; letter-spacing: -.055em; }
+    h1 { font-size: clamp(3.25rem, 7.4vw, 6.75rem); font-weight: 740; }
+    h2 { font-size: clamp(2.5rem, 5.7vw, 5rem); font-weight: 700; }
+    h3 { font-size: clamp(1.55rem, 2.7vw, 2.4rem); }
+    .hero p { margin-block: 1.2rem 1.65rem; max-width: 25ch; color: var(--muted); font-size: clamp(1.18rem, 2.5vw, 1.65rem); line-height: 1.3; letter-spacing: -.025em; }
+    .actions { gap: .6rem .75rem; }
+    .button { display: inline-flex; min-height: 2.85rem; align-items: center; justify-content: center; padding: .55rem 1.05rem; border: 1px solid var(--orange); border-radius: 99rem; font-size: .94rem; font-weight: 600; }
+    .button:hover { background: #fcebe2; text-decoration: none; }
+    .primary { background: var(--orange); color: var(--white); }
+    .primary:hover { background: #8e2d0b; }
+    .portrait { width: min(100%, 24rem); justify-self: center; border-radius: 50%; box-shadow: 0 16px 60px #a3462533; }
+    main section { padding-block: clamp(3rem, 7vw, 6rem); border-bottom: 1px solid var(--line); }
+    .label { display: block; margin-bottom: .7rem; color: var(--orange); font-size: .95rem; font-weight: 700; }
+    .case { margin-top: 2rem; display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: clamp(1.5rem, 4vw, 4rem); padding: clamp(1.4rem, 5vw, 4rem); border-radius: 1.75rem; color: #fff7ee; background: radial-gradient(ellipse at 100% 100%, #71310f, transparent 75%), #211511; }
+    .case h3 { font-size: clamp(2rem, 5vw, 4.2rem); color: var(--gold); }
+    .case p, .card p, .compact p { margin-top: .75rem; }
+    .case p { max-width: 36rem; color: #f5dfd1; }
+    .case aside { border: 1px solid #ffffff38; background: #ffffff0d; border-radius: 1.15rem; padding: clamp(1rem, 3vw, 1.8rem); }
+    .case h4 { margin: 0; font-size: clamp(1.2rem, 2.4vw, 1.65rem); letter-spacing: -.025em; overflow-wrap: anywhere; }
+    .stack { display: inline-block; margin-top: 1rem; padding: .27rem .7rem; border-radius: 99rem; background: var(--tangerine); color: #351708; font-size: .85rem; font-weight: 700; }
+    .studio { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding: clamp(1rem, 3vw, 1.5rem); border-radius: 1.25rem; background: var(--white); }
+    .studio img { flex: none; width: clamp(3rem, 8vw, 4.75rem); border-radius: 22%; }
+    .studio .links { margin-top: .4rem; }
+    .other-games { margin-top: 1.3rem; }
+    .lead { margin-top: .9rem; color: var(--muted); font-size: clamp(1.1rem, 2.5vw, 1.45rem); }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+    .card { padding: clamp(1.3rem, 4vw, 3rem); border-radius: 1.5rem; background: var(--white); }
+    .card h3 a { color: var(--ink); }
+    .card p { color: var(--muted); }
+    .contact { margin-top: 1rem; padding: 1.2rem clamp(1.25rem, 4vw, 3rem); background: #ffeadc; border-radius: 1.25rem; }
+    .contact a { overflow-wrap: anywhere; font-weight: 650; }
+    .compact { display: grid; grid-template-columns: minmax(11rem, .62fr) 1fr; align-items: start; gap: .85rem 2rem; padding-block: clamp(2rem, 4.5vw, 3.4rem); }
+    .compact h2 { font-size: clamp(1.85rem, 3.6vw, 2.75rem); }
+    .compact p:first-child { margin-top: 0; }
+    .compact .links { margin-top: .7rem; }
+    footer .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 1rem 3rem; font-size: .9rem; }
+    summary { color: var(--muted); cursor: pointer; }
+    summary:hover { text-decoration: underline; }
+    details .links { margin-top: .65rem; }
+    @media (max-width: 44rem) {
+      .hero, .case, .compact { grid-template-columns: 1fr; }
+      .hero { text-align: center; padding-block: 2.5rem 3.5rem; }
+      .hero p { margin-inline: auto; }
+      .actions { justify-content: center; }
+      .portrait { grid-row: 1; width: clamp(8rem, 35vw, 13rem); }
+      .cards { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 26rem) {
+      .masthead { justify-content: center; }
+      nav { justify-content: center; column-gap: 1rem; }
+      h1 { font-size: clamp(2.55rem, 12vw, 3.25rem); }
+      .studio { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+  <header class="topbar">
+    <div class="wrap masthead">
+      <a class="wordmark" href="#top">RelaxerR</a>
+      <nav aria-label="Разделы портфолио">
+        <a href="#games">Геймдев</a>
+        <a href="#commission">На заказ</a>
+        <a href="#music">Музыка</a>
+        <a href="#profiles">Профили</a>
+      </nav>
+    </div>
+  </header>
+  <div class="intro" id="top">
+    <div class="wrap hero">
+      <div>
+        <h1>Вячеслав<br>Киселёв</h1>
+        <p>.NET‑разработчик и основатель RelaxerR Games</p>
+        <div class="actions">
+          <a class="button primary" href="#games">О проекте The Book Game</a>
+          <a class="button" href="#contact">Обсудить заказ</a>
+        </div>
+      </div>
+      <img class="portrait" src="assets/relaxerr.jpg" width="720" height="720" alt="Аватар RelaxerR">
+    </div>
+  </div>
+  <main class="wrap" id="main">
+    <section id="games" aria-labelledby="games-title">
+      <span class="label">Геймдев</span>
+      <h2 id="games-title">The Book Game</h2>
+      <article class="case dark" aria-labelledby="novel-title">
+        <div>
+          <h3 id="novel-title">«Второй шанс»</h3>
+          <p>Визуальная новелла о подростке в школе магии, который сталкивается с травлей.</p>
+          <p>Игрок решает, как герой отвечает на давление и к кому обращается за поддержкой. Выборы влияют на отношения с персонажами и ход истории.</p>
+        </div>
+        <aside aria-labelledby="editor-title">
+          <h4 id="editor-title">StoryMakerIDE</h4>
+          <p>Редактор сцен, диалогов и сюжетных развилок.</p>
+          <span class="stack">C# / .NET MAUI</span>
+        </aside>
+      </article>
+      <div class="studio">
+        <img src="assets/relaxerr-games.png" width="192" height="192" alt="">
+        <div>
+          <a href="https://relaxerr-games.ru"><strong>RelaxerR Games</strong></a>
+          <div class="links" role="group" aria-label="RelaxerR Games">
+            <a href="https://t.me/relaxerr_games">Telegram студии</a>
+            <a href="https://vk.ru/relaxerr_games">ВКонтакте</a>
+            <a href="https://www.youtube.com/@Relaxerr_games">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <p class="other-games">Магистратура Университета Иннополис «Управление разработкой компьютерных игр».</p>
+      <p class="other-games"><a href="https://github.com/RelaxerR/iu-friendddly-game-jam">Not So Friendly Bee</a> (командный джем) и <a href="https://github.com/RelaxerR/GameDevSim">Game Dev Sim</a> (веб‑адаптация настольной бизнес‑симуляции).</p>
+    </section>
+    <section id="commission" aria-labelledby="commission-title">
+      <h2 id="commission-title">Разработка на заказ</h2>
+      <p class="lead">Сайты, веб‑сервисы и Telegram‑боты под ключ.</p>
+      <div class="cards" role="group" aria-label="Примеры работ">
+        <article class="card">
+          <h3><a href="https://github.com/RelaxerR/relaxerr-dnd-economy">D&amp;D Economy</a></h3>
+          <p>Каталог с динамическими ценами, заявки и админ‑панель.</p>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/RelaxerR/TgDataPlanner">TgDataPlanner</a></h3>
+          <p>Собирает данные о доступности участников, учитывает часовые пояса и предлагает время встречи.</p>
+        </article>
+      </div>
+      <div class="contact links" id="contact">
+        <a href="mailto:relaxerr-games@yandex.com">relaxerr-games@yandex.com</a>
+        <a href="https://t.me/relaxerr_teech">Написать в Telegram</a>
+      </div>
+    </section>
+    <section class="compact" id="planning" aria-labelledby="planning-title">
+      <h2 id="planning-title">Планирование</h2>
+      <p>Работаю над сложной .NET-системой производственного планирования, которая помогает принимать решения в условиях множества взаимосвязанных ограничений.</p>
+    </section>
+    <section class="compact" id="music" aria-labelledby="music-title">
+      <h2 id="music-title">Музыка</h2>
+      <div>
+        <p>Пишу и выпускаю музыку под именем RelaxerR.</p>
+        <div class="links">
+          <a href="https://music.apple.com/us/artist/relaxerr/1606371133">Apple Music</a>
+          <a href="https://music.yandex.ru/artist/15814220">Яндекс Музыка</a>
+        </div>
+      </div>
+    </section>
+    <section class="compact" id="more" aria-labelledby="more-title">
+      <h2 id="more-title">Другие проекты и интересы</h2>
+      <div>
+        <p><a href="https://github.com/RelaxerR/RTelemetry">RTelemetry</a> — телеметрия .NET‑приложений.</p>
+        <p><a href="https://github.com/RelaxerR/Shelter-Humanizer">Shelter-Humanizer</a> — вклад в поддержку macOS в форке.</p>
+        <p>3D‑печать, экономические настолки и D&amp;D.</p>
+      </div>
+    </section>
+  </main>
+  <footer id="profiles">
+    <div class="wrap">
+      <div class="links" role="group" aria-label="Основные профили">
+        <a href="https://github.com/RelaxerR">GitHub</a>
+        <a href="https://vk.ru/relaxerr">ВКонтакте</a>
+      </div>
+      <details>
+        <summary>Дополнительные профили</summary>
+        <div class="links">
+          <span>Discord: <strong>relaxerr</strong></span>
+          <a href="https://steamcommunity.com/id/relaxerrr/">Steam</a>
+          <a href="https://www.youtube.com/@slanix_channel">YouTube</a>
+        </div>
+      </details>
+    </div>
+  </footer>
+</body>
+</html>
